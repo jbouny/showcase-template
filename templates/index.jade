@@ -21,20 +21,15 @@ block content
               | !{ typogr(header.html).typogrify() }
           
   div.row
+    - var features = contents['features.md']
     div.col-lg-12
-      h2.page-header Features
+      h2.page-header= features.title
       
     div.col-md-6
-      p Includes:
-      ul
-        li Feature 1
-        li Feature 2
-        li Feature 3
-        li Feature 4
-      p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.
-    
+      | !{ typogr(features.html).typogrify() }
+      
     div.col-md-6
-      img.img-responsive(src="http://placehold.it/700x450/333940/666")
+      img.img-responsive(src="#{features.metadata.image}")
       
   hr
         
