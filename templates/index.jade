@@ -1,0 +1,63 @@
+extends layout
+
+block header
+  
+  include carousel.jade
+
+block content
+          
+  div.row
+    div.col-lg-12
+      h1.page-header Title
+      
+    - var headers = env.helpers.getHeaders(contents)
+    each header in headers
+      div.col-md-4
+        div(class="panel panel-default")
+          div.panel-heading
+            h4= header.title
+          div.panel-body
+            p
+              | !{ typogr(header.html).typogrify() }
+          
+  div.row
+    div.col-lg-12
+      h2.page-header Features
+      
+    div.col-md-6
+      p Includes:
+      ul
+        li Feature 1
+        li Feature 2
+        li Feature 3
+        li Feature 4
+      p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.
+    
+    div.col-md-6
+      img.img-responsive(src="http://placehold.it/700x450/333940/666")
+      
+  hr
+        
+  div.well
+    div.row
+      div.col-md-8
+        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.
+      div.col-md-4
+        a(class="btn btn-lg btn-primary btn-block", href="#") Pre-Order
+
+block prepend footer
+  div.nav
+    if prevPage
+      a(href=prevPage.url) « Newer
+    else
+      a(href='/archive.html') « Archives
+    if nextPage
+      a(href=nextPage.url) Next page »
+
+block script
+  script.
+    $('.carousel').carousel({
+      interval: 5000 //changes the speed
+    })
+
+
