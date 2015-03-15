@@ -13,7 +13,7 @@ block content
     - var headers = env.helpers.getHeaders(contents)
     each header in headers
       div.col-md-4
-        div(class="panel panel-default")
+        div.panel.panel-default
           div.panel-heading
             h4= header.title
           div.panel-body
@@ -38,7 +38,7 @@ block content
       div.col-md-8
         p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.
       div.col-md-4
-        a(class="btn btn-lg btn-primary btn-block", href="#") Pre-Order
+        a.btn.btn-lg.btn-primary.btn-block(href="#") Pre-Order
 
 block prepend footer
   div.nav

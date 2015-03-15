@@ -6,7 +6,7 @@ header#carousel(class="carousel slide")
     li(data-target="#carousel", data-slide-to="2")
     
   div.carousel-inner
-    div(class="item active")
+    div.item.active
       div.fill(style="background-image:url('http://placehold.it/1600x900/333940/666&text=Slide 1');")
       div.carousel-caption
         h2= locals.description
@@ -21,7 +21,7 @@ header#carousel(class="carousel slide")
       div.carousel-caption
         h2= locals.description
         
-  a(class="left carousel-control", href="#carousel", data-slide="prev")
+  a.left.carousel-control(href="#carousel", data-slide="prev")
     span.icon-prev
-  a(class="right carousel-control", href="#carousel", data-slide="next")
+  a.right.carousel-control(href="#carousel", data-slide="next")
       span.icon-next
