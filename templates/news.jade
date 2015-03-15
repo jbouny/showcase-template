@@ -22,7 +22,7 @@ block content
               | !{ typogr(article.intro).typogrify() }
             if article.hasMore
               p.more
-                a(href=article.url) more
+                a(href=env.helpers.makeRelative(page.url, article.url)) more
         hr
 
 
