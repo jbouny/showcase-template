@@ -1,5 +1,8 @@
 extends layout
 
+block append vars
+  - page = { url: '/' }
+
 block header
   
   include carousel.jade

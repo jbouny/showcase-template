@@ -6,7 +6,8 @@
     "description": "Caption"
   },
   "plugins": [
-    "./plugins/paginator.coffee"
+    "./plugins/paginator.coffee",
+    "./plugins/makerelative.coffee"
   ],
   "require": {
     "moment": "moment",

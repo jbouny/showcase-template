@@ -1,6 +1,7 @@
 doctype html
 block vars
   - var bodyclass = null;
+  
 html(lang='en')
   head
     block head
@@ -10,10 +11,10 @@ html(lang='en')
       title
         block title
           = locals.name
-      link(rel='alternate', href=locals.url+'/feed.xml', type='application/rss+xml', title=locals.description)
+      link(rel='alternate', href=env.helpers.makeRelative(page.url, '/feed.xml'), type='application/rss+xml', title=locals.description)
       link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300')
-      link(rel='stylesheet', href=locals.url+'/css/bootstrap-darkly.min.css')
-      link(rel='stylesheet', href=locals.url+'/css/modern-business.css')
+      link(rel='stylesheet', href=env.helpers.makeRelative(page.url, '/css/bootstrap-darkly.min.css'))
+      link(rel='stylesheet', href=env.helpers.makeRelative(page.url, '/css/modern-business.css'))
       
   body.bodyclass
   
@@ -25,18 +26,18 @@ html(lang='en')
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href="#{locals.url}/")= locals.name
+          a.navbar-brand(href=env.helpers.makeRelative(page.url, "/index.html"))= locals.name
           
         div.collapse.navbar-collapse#navbar-main
           ul.nav.navbar-nav.navbar-right
             li
-              a(href="#{locals.url}/about.html") About
+              a(href=env.helpers.makeRelative(page.url, "/about.html")) About
              li
-              a(href="#{locals.url}/services.html") Services
+              a(href=env.helpers.makeRelative(page.url, "/services.html")) Services
             li
-              a(href="#{locals.url}/contact.html") Contact
+              a(href=env.helpers.makeRelative(page.url, "/contact.html")) Contact
             li
-              a(href="#{locals.url}/news.html") News
+              a(href=env.helpers.makeRelative(page.url, "news.html")) News
             li.dropdown
               a.dropdown-toggle(href="#", data-toggle="dropdown") Menu
                 b.caret
@@ -59,6 +60,6 @@ html(lang='en')
               hr
               !=contents['footer.md'].html
               
-    script(src=locals.url+'/js/jquery.min.js')
-    script(src=locals.url+'/js/bootstrap.min.js')
+    script(src=env.helpers.makeRelative(page.url, '/js/jquery.min.js'))
+    script(src=env.helpers.makeRelative(page.url, '/js/bootstrap.min.js'))
     block script
