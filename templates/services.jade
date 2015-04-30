@@ -11,20 +11,21 @@ block content
       div.row
         div.col-lg-12
           h2.page-header Main services
-          
-        each service in ["One", "Two", "Three", "Four"]
+        
+        - var services = env.helpers.getServices(contents)
+        each service in services
           div.col-md-3.col-sm-6
             div.panel.panel-default.text-center
               div.panel-heading
-                img.img-responsive(src="http://placehold.it/700x500/333940/666")
+                img.img-responsive(src=service.metadata.image)
               div.panel-body
-                h4 Service #{service}
+                h4= service.title
                 p Service ...
                 a.btn.btn-primary Learn More
                 
       div.row
         div.col-lg-12
-          h2.page-header All services
+          h2.page-header All services          
           
           - var numService = 1
           - var j = 0
