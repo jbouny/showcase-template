@@ -27,10 +27,28 @@ module.exports = (env, callback) ->
     return articles
 
   getHeaders = (contents) ->
-    headers = []
+    pages = []
     for key, value of contents[options.headers]
-      headers.push value if value instanceof env.plugins.Page
-    return headers
+      pages.push value if value instanceof env.plugins.Page
+    return pages
+
+  getServices = (contents) ->
+    pages = []
+    for key, value of contents['services']
+      pages.push value if value instanceof env.plugins.Page
+    return pages
+
+  getProjects = (contents) ->
+    pages = []
+    for key, value of contents['projects']
+      pages.push value if value instanceof env.plugins.Page
+    return pages
+
+  getExperiences = (contents) ->
+    pages = []
+    for key, value of contents['experiences']
+      pages.push value if value instanceof env.plugins.Page
+    return pages
 
   class PaginatorPage extends env.plugins.Page
     ### A page has a number and a list of articles ###
@@ -94,6 +112,9 @@ module.exports = (env, callback) ->
   # add the article helper to the environment so we can use it later
   env.helpers.getArticles = getArticles
   env.helpers.getHeaders = getHeaders
+  env.helpers.getServices = getServices
+  env.helpers.getProjects = getProjects
+  env.helpers.getExperiences = getExperiences
 
   # tell the plugin manager we are done
   callback()
