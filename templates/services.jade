@@ -13,32 +13,35 @@ block content
           h2.page-header Main services
         
         - var services = env.helpers.getServices(contents)
-        each service in services
-          div.col-md-3.col-sm-6
-            div.panel.panel-default.text-center
-              div.panel-heading
-                img.img-responsive(src=service.metadata.image)
-              div.panel-body
-                h4= service.title
-                p Service ...
-                a.btn.btn-primary Learn More
+          each service in services
+            div.col-md-3.col-sm-6
+              div.panel.panel-default.text-center
+                div.panel-heading
+                  img.img-responsive(src=service.metadata.image)
+                div.panel-body
+                  h4= service.title
+                  p
+                    | !{ typogr(service.html).typogrify() }
                 
       div.row
         div.col-lg-12
-          h2.page-header All services          
+          h2.page-header All projects          
           
-          - var numService = 1
+          - var projects = env.helpers.getProjects(contents)
+          - var numProject = 0
           - var j = 0
-          while j++ < 3
-            div.col-md-4
-              - var i = 0
-              while i++ < 4
+          - var nbProjects = projects.length
+          
+          div.row
+            each project in projects
+              div.col-md-4.col-sm-4
                 div.media
                   div.pull-left
-                    img(src="http://placehold.it/80x80/333940/666")
+                    img(src=project.metadata.image)
                   div.media-body
-                    h4.media-heading Service #{numService++}
-                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo itaque ipsum sit harum.
+                    h4.media-heading= project.title
+                    p
+                      | !{ typogr(project.html).typogrify() }
       
       div.row
         div.col-lg-12
